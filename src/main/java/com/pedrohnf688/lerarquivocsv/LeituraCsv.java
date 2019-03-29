@@ -7,6 +7,7 @@ package com.pedrohnf688.lerarquivocsv;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.pedrohnf688.modelo.Laudo;
 import com.pedrohnf688.modelo.Pessoa;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,11 +40,11 @@ public class LeituraCsv {
               
                Reader reader = Files.newBufferedReader(Paths.get(jfc.getSelectedFile().getAbsolutePath()));
 
-               CsvToBean<Pessoa> csvToBean = new CsvToBeanBuilder(reader).withType(Pessoa.class).build();
+               CsvToBean<Laudo> csvToBean = new CsvToBeanBuilder(reader).withType(Laudo.class).build();
           
-               List<Pessoa> pessoas = csvToBean.parse();  
+               List<Laudo> pessoas = csvToBean.parse();  
         
-              for(Pessoa pessoa : pessoas){
+              for(Laudo pessoa : pessoas){
                   System.out.println(pessoa);
               }
               
@@ -60,5 +61,5 @@ public class LeituraCsv {
         }
           
       }
-    
+      
 }
